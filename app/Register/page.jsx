@@ -1,14 +1,13 @@
-import React from 'react'
+'use client'
 import React, { useState } from 'react'
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-
-const Signup = () => {
-
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+const Register = ()  => {
+  const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,16 +17,16 @@ const Signup = () => {
       const user = userCredential.user;
       localStorage.setItem('token', user.accessToken);
       localStorage.setItem('user', JSON.stringify(user));
-      navigate("/");
+      router.push('/Main')
     } catch (error) {
       console.error(error);
     }
   }
-}
-export default function Register() {
+
+
   return (
     <div className="loginPage">
-    <form className="loginComponent">
+    <form className="loginComponent" onSubmit={handleSubmit}>
       <div className="panelTitle">
         <h1 className="panelTitleText">Welcome back</h1>
       </div>
@@ -36,12 +35,11 @@ export default function Register() {
         <input type="password" required className="loginInput" placeholder="Your Password..." />
       </div>
       <div className="main_button_container">
-      <Link href={'/Login'}>
         <button type='submit' className="main_btn login_btn loginpg_btn">Login</button>
-        </Link>
         <Link href={'/RecoverAccount'}>Forgot Password?</Link>
       </div>
     </form>
     </div>
   )
 }
+export default Register
