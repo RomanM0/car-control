@@ -32,10 +32,10 @@ const Main = () => {
           <img className="car_img" src="https://www.pngmart.com/files/10/Skoda-Octavia-Transparent-Background.png" alt="" />
         </div>
         <div className="car_data">
-          <p className="car_data_txt car_data_name">Name and model: <p> Skoda Octavia R5</p></p>
-          <p className="car_data_txt">Year: <p>2005</p></p>
-          <p className="car_data_txt">Color: <p>Red</p></p>
-          <p className="car_data_txt">Max speed:<p>180 km/h</p></p>
+          <div className="car_data_txt car_data_name">Name and model: <p> Skoda Octavia R5</p></div>
+          <div className="car_data_txt">Year: <p>2005</p></div>
+          <div className="car_data_txt">Color: <p>Red</p></div>
+          <div className="car_data_txt">Max speed:<p>180 km/h</p></div>
           <button className="main_btn car_data_btn">View Info</button>
         </div>
       </div>
